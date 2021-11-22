@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+
+</head>
+
+
+
+
+
+
+
+<body>
+    <div class="card mx-auto text-center" style="width: 18rem;">
+        <img id="picture" src="img/default.jpeg" class="card-img-top" alt="salade-de-fruits">
+        <div class="card-body">
+            <h5 id="title" class="card-title">Salade de fruits</h5>
+            <p id="description" class="card-text">Une très bonne salade de fruits.</p>
+            <a id="price" href="#" class="btn btn-secondary">15€</a>
+        </div>
+    </div>
+
+
+    <div class="mx-auto p-2 text-center">
+        <button class="btn btn-lg m-1 btn-success"
+            onclick="showFruit('pomme',1.95,'Une trés belle pomme.')">Pomme</button>
+        <button class="btn btn-lg m-1 btn-danger"
+            onclick="showFruit('fraise',5.00,'Une très belle fraise.')">Fraise</button>
+        <button class="btn btn-lg m-1 btn-warning"
+            onclick="showFruit ('citron',0.80,'Un très beau citron.')">Citron</button>
+    </div>
+
+
+    <div id="dennisButtons" class="mx-auto p-2 text-center">
+        <button class="btn btn-lg m-1 btn-primary"data-show data-price="3.50" data-name="myrtille"
+            data-description="Une magnifique myrtille.">Myrtille </button>
+        <button class="btn btn-lg m-1 btn-dark"data-show data-price="1.50" data-name="raisin"
+            data-description="Du beau raisin noir">Raisin noir</button>
+        <button class="btn btn-lg m-1 btn-outline-dark"data-show data-price="1.65" data-name="NoixDeCoco"
+            data-description="Une magnifique nois de coco">Noix de
+            coco</button>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script>
+        function showFruit(fruit, price, description) {
+            document.getElementById('picture').src = `img/${fruit}.jpeg`
+            document.getElementById('title').innerHTML = `${fruit}`
+            document.getElementById('description').textContent = `${description}`
+            document.getElementById('price').textContent = `${price}€`
+        }
+
+        document.getElementById('dennisButtons').addEventListener('click', (event) => {
+            if (event.target.hasAttribute('data-show')) {
+                document.getElementById('picture').src = `img/${event.target.dataset.name}.jpeg`
+                document.getElementById('title').innerHTML = `${event.target.dataset.name}`
+                document.getElementById('description').textContent = `${event.target.dataset.description}`
+                document.getElementById('price').textContent = `${event.target.dataset.price}€`
+
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
